@@ -1,0 +1,14 @@
+@import "reset";
+
+body {
+    margin: 0;
+}
+
+#root {
+    border: 1px dashed salmon;
+    padding: 20px;
+
+    h1 {
+        color: blue;
+    }
+}
