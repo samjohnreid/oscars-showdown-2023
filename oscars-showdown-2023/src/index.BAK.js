@@ -2,13 +2,19 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 
-const PROJECT_ID = "d2cpdrm6";
+const PROJECT_ID = "nkto1d41";
 const DATASET = "production";
 const API_PATH = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=`;
 
-const QUERY_PETS = encodeURIComponent('*[_type == "pet"]');
+const QUERY_CATEGORIES = encodeURIComponent('*[_type == "category"]');
+const QUERY_ITEMS = encodeURIComponent('*[_type == "item"]');
+const QUERY_LICENSES = encodeURIComponent('*[_type == "license"]');
+const QUERY_MOVIES = encodeURIComponent('*[_type == "movie"]');
 
-const petsPromise = fetch(`${API_PATH}${QUERY_PETS}`);
+const categoriesPromise = fetch(`${API_PATH}${QUERY_CATEGORIES}`);
+const itemsPromise = fetch(`${API_PATH}${QUERY_ITEMS}`);
+const licensesPromise = fetch(`${API_PATH}${QUERY_LICENSES}`);
+const moviesPromise = fetch(`${API_PATH}${QUERY_MOVIES}`);
 
 function SelectBestPicture(hello) {
     console.log('hi sab 👋', hello);
@@ -24,11 +30,12 @@ function SelectBestPicture(hello) {
 }
 
 function App() {
-    const [pets, setPets] = useState(null);
+    const [categories, setCategories] = useState(null);
+    const [items, setItems] = useState(null);
 
     useEffect(() => {
         Promise
-            .all([petsPromise])
+            .all([categoriesPromise, itemsPromise])
             .then((responses) => {
                 return Promise.all(responses.map((response) => {
                     return response.json();
@@ -36,10 +43,7 @@ function App() {
             })
             .then((data) => {
                 console.log('data:', data[0].result);
-                setPets(data[0].result);
-            })
-            .catch((error) => {
-                console.error('Error!', error);
+                setCategories(data[0].result);
             })
     }, []);
     
@@ -47,7 +51,7 @@ function App() {
         <div>
             <h1>Hello!</h1>
             <p>Welcome to Oscars Showdown 2023!</p>
-            {pets && <SelectBestPicture hello={pets} />}
+            {categories && <SelectBestPicture hello={categories} />}
         </div>
     );
 }
