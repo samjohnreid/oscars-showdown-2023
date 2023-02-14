@@ -1,9 +1,9 @@
 import picture from './picture';
 import director from './director';
-import actress from './actress';
 import actor from './actor';
-import supportingActress from './supporting-actress';
+import actress from './actress';
 import supportingActor from './supporting-actor';
+import supportingActress from './supporting-actress';
 import adaptedScreenplay from './adapted-screenplay';
 import originalScreenplay from './original-screenplay';
 import animatedFeatureFilm from './animated-feature-film';
@@ -15,10 +15,10 @@ import player from './player';
 export const schemaTypes = [
     picture,
     director,
-    actress,
     actor,
-    supportingActress,
+    actress,
     supportingActor,
+    supportingActress,
     adaptedScreenplay,
     originalScreenplay,
     animatedFeatureFilm,
