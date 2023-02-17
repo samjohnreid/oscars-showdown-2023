@@ -9,13 +9,16 @@ export default {
             title: 'Name'
         },
         {
-            name: 'actor',
-            type: 'array',
-            title: 'Best Actor',
-            of: [{
-                type: 'reference',
-                to: [{type: 'actor'}]
-            }]
+            name: 'picture',
+            type: 'reference',
+            title: 'Best Picture',
+            to: [{type: 'picture'}],
+        },
+        {
+            name: 'director',
+            type: 'reference',
+            title: 'Best Director',
+            to: [{type: 'director'}],
         },
     ]
 }
