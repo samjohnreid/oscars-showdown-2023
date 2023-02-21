@@ -20,5 +20,11 @@ export default {
             title: 'Best Director',
             to: [{type: 'director'}],
         },
+        {
+            name: 'actor',
+            type: 'reference',
+            title: 'Best Actor',
+            to: [{type: 'actor'}],
+        },
     ]
 }
