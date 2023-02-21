@@ -17,32 +17,23 @@ const picturePromise = fetch(`${API_PATH}${QUERY_PICTURE}`);
 const playerName = 'Dom';
 
 const PlayerNoms = (props) => {
-    console.log('props:', props);
-    console.log('player:', props.player);
-    console.log('director:', props.director);
-    console.log('picture:', props.picture);
-
     const nomOptions = (noms) => {
         return noms.map((nom, index) => (
             <option value={nom.title ? nom.title : nom.name} key={index}>{nom.title ? nom.title : nom.name}</option>
         ));
     }
 
-    const findCurrentNom = (cat) => {
+    const findCurrentNom = (catArr, catName) => {
         // 1. find out *who* the player is ✅
         // 2. find out what category is ✅
         // 3. find out if they voted yet, and if so what the nom is
         // 4. default to the first one if no nom; add selected to nom if one
-        console.log('hellooooo!', cat);
+        
+        const playerData = props.player.find(el => el.name.includes(playerName));
+        const playerNom = catArr.find(item => item._id === playerData[catName]._ref);
 
-        const playerData = props.player.find((el) => {
-            return el.name.includes(playerName);
-        });
-
-        console.log('hi sab', playerData);
+        return playerNom.title ? playerNom.title : playerNom.name;
     }
-    
-    console.log('props.player', props.player);
     
     return (
         <div>
@@ -51,13 +42,13 @@ const PlayerNoms = (props) => {
             <form>
                 <div>
                     <label>Best Picture: </label>
-                    <select defaultValue={findCurrentNom('Best Picture')}>
+                    <select defaultValue={findCurrentNom(props.picture, 'picture')}>
                         {nomOptions(props.picture)}
                     </select>
                 </div>
                 <div>
                     <label>Best Director: </label>
-                    <select>
+                    <select defaultValue={findCurrentNom(props.director, 'director')}>
                         {nomOptions(props.director)}
                     </select>
                 </div>
