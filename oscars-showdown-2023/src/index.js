@@ -16,9 +16,31 @@ const directorPromise = fetch(`${API_PATH}${QUERY_DIRECTOR}`);
 const picturePromise = fetch(`${API_PATH}${QUERY_PICTURE}`);
 const actorPromise = fetch(`${API_PATH}${QUERY_ACTOR}`);
 
-const playerName = 'Sam';
+const playerName = 'Dom';
+
+const testFunc = (e) => {
+    e.preventDefault();
+    console.log('weeeeee!');
+}
+
+/*
+
+UPDATE NOMS IN CMS
+
+1. pass in the string value of the option being selected ✅
+2. find out which category is being targeted ✅
+3. find out which player is active
+4. update THAT category for THAT player
+
+*/
+
+// ******************************************************************************************************************************************************
 
 const PlayerNoms = (props) => {
+    const playerData = props.player.find(el => el.name.includes(playerName));
+
+    console.log('playerData:', playerData);
+    
     const nomOptions = (noms) => {
         const sortedNoms = noms.sort((a, b) => {
             const nomA = a.name ? a.name.toUpperCase() : a.title.toUpperCase();
@@ -32,42 +54,70 @@ const PlayerNoms = (props) => {
     }
 
     const findCurrentNom = (category) => {
-        const playerData = props.player.find(el => el.name.includes(playerName));
         const playerNom = category.find(item => item._id === playerData[category[0]._type]._ref);
 
         return playerNom.title ? playerNom.title : playerNom.name;
     }
     
+    const updateNom = (data) => {
+        const nomCategory = data.target.name;
+        const nomFieldId = playerData[nomCategory]._ref;
+        const nomValue = data.target.value;
+        const nameOrTitle = data.target.dataset.nameOrTitle;
+        
+        const mutations = [{
+            createOrReplace: {
+                _id: nomFieldId,
+                _type: nomCategory,
+                [nameOrTitle]: nomValue
+            }
+        }];
+        
+        fetch(`https://${PROJECT_ID}.api.sanity.io/v2021-06-07/data/mutate/${DATASET}`, {
+            method: 'post',
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer skAtdpfUgZo20BFZL4hLcMwGlXeGEZMKvNeIZM0C1P1AbXF2zSpUtNlLpPigHOSQeViEHhzg4xJ1hDjWU`
+            },
+            body: JSON.stringify({mutations})
+        })
+        .then(response => response.json())
+        .then(result => console.log(result))
+        .catch(error => console.error(error))
+    }
+    
     return (
         <div>
-            <h2>Nominations for [player]!</h2>
+            <h2>Nominations for {playerName}!</h2>
             <br />
             <form>
                 <div>
-                    <label>Best Picture: </label>
-                    <select defaultValue={findCurrentNom(props.picture)}>
+                    <label htmlFor="picture">Best Picture: </label>
+                    <select name="picture" id="picture" defaultValue={findCurrentNom(props.picture)} onChange={updateNom} data-name-or-title="title">
                         {nomOptions(props.picture)}
                     </select>
                 </div>
                 <div>
-                    <label>Best Director: </label>
-                    <select defaultValue={findCurrentNom(props.director)}>
+                    <label htmlFor="director">Best Director: </label>
+                    <select name="director" id="director" defaultValue={findCurrentNom(props.director)} onChange={updateNom} data-name-or-title="name">
                         {nomOptions(props.director)}
                     </select>
                 </div>
                 <div>
-                    <label>Best Actor: </label>
-                    <select defaultValue={findCurrentNom(props.actor)}>
+                    <label htmlFor="actor">Best Actor: </label>
+                    <select name="actor" id="actor" defaultValue={findCurrentNom(props.actor)} onChange={updateNom} data-name-or-title="name">
                         {nomOptions(props.actor)}
                     </select>
                 </div>
                 <div>
-                    <input type="submit" />
+                    <input type="submit" onClick={testFunc} />
                 </div>
             </form>
         </div>
     );
 }
+
+// ******************************************************************************************************************************************************
 
 function App() {
     const [player, setPlayer] = useState(null);
@@ -118,7 +168,7 @@ function App() {
     );
 }
 
-// ========================================
+// ******************************************************************************************************************************************************
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
