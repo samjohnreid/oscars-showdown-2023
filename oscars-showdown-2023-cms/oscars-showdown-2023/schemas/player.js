@@ -10,21 +10,18 @@ export default {
         },
         {
             name: 'picture',
-            type: 'reference',
+            type: 'string',
             title: 'Best Picture',
-            to: [{type: 'picture'}],
         },
         {
             name: 'director',
-            type: 'reference',
+            type: 'string',
             title: 'Best Director',
-            to: [{type: 'director'}],
         },
         {
             name: 'actor',
-            type: 'reference',
+            type: 'string',
             title: 'Best Actor',
-            to: [{type: 'actor'}],
         },
     ]
 }

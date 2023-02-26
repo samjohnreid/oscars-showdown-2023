@@ -25,12 +25,7 @@ const testFunc = (e) => {
 
 /*
 
-UPDATE NOMS IN CMS
-
-1. pass in the string value of the option being selected ✅
-2. find out which category is being targeted ✅
-3. find out which player is active
-4. update THAT category for THAT player
+1. 
 
 */
 
@@ -54,22 +49,30 @@ const PlayerNoms = (props) => {
     }
 
     const findCurrentNom = (category) => {
-        const playerNom = category.find(item => item._id === playerData[category[0]._type]._ref);
+        // const playerNom = category.find(item => item._id === playerData[category[0]._type]._ref);
 
-        return playerNom.title ? playerNom.title : playerNom.name;
+        // return playerNom.title ? playerNom.title : playerNom.name;
+
+        return null;
     }
     
     const updateNom = (data) => {
+        const playerId = playerData._id;
         const nomCategory = data.target.name;
-        const nomFieldId = playerData[nomCategory]._ref;
         const nomValue = data.target.value;
         const nameOrTitle = data.target.dataset.nameOrTitle;
+
+        console.log('playerId:', playerId);
+        console.log('nomCategory:', nomCategory);
+        console.log('nomValue:', nomValue);
+        console.log('nameOrTitle:', nameOrTitle);
         
         const mutations = [{
-            createOrReplace: {
-                _id: nomFieldId,
-                _type: nomCategory,
-                [nameOrTitle]: nomValue
+            patch: {
+                id: playerId,
+                set: {
+                    [nomCategory]: nomValue
+                }
             }
         }];
         
