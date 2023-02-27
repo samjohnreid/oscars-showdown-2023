@@ -7,29 +7,41 @@ const DATASET = "production";
 const API_PATH = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=`;
 
 const QUERY_PLAYER = encodeURIComponent('*[_type == "player"]');
-const QUERY_DIRECTOR = encodeURIComponent('*[_type == "director"]');
 const QUERY_PICTURE = encodeURIComponent('*[_type == "picture"]');
+const QUERY_DIRECTOR = encodeURIComponent('*[_type == "director"]');
 const QUERY_ACTOR = encodeURIComponent('*[_type == "actor"]');
+const QUERY_ACTRESS = encodeURIComponent('*[_type == "actress"]');
+const QUERY_SUPPORTING_ACTOR = encodeURIComponent('*[_type == "supportingActor"]');
+const QUERY_SUPPORTING_ACTRESS = encodeURIComponent('*[_type == "supportingActress"]');
+const QUERY_ADAPTED_SCREENPLAY = encodeURIComponent('*[_type == "adaptedScreenplay"]');
+const QUERY_ORIGINAL_SCREENPLAY = encodeURIComponent('*[_type == "originalScreenplay"]');
+const QUERY_ANIMATED_FEATURE_FILM = encodeURIComponent('*[_type == "animatedFeatureFilm"]');
+const QUERY_CINEMATOGRAPHY = encodeURIComponent('*[_type == "cinematography"]');
+const QUERY_MAKEUP_AND_HAIRSTYLING = encodeURIComponent('*[_type == "makeupAndHairstyling"]');
+const QUERY_VISUAL_EFFECTS = encodeURIComponent('*[_type == "visualEffects"]');
 
 const playerPromise = fetch(`${API_PATH}${QUERY_PLAYER}`);
 const directorPromise = fetch(`${API_PATH}${QUERY_DIRECTOR}`);
 const picturePromise = fetch(`${API_PATH}${QUERY_PICTURE}`);
 const actorPromise = fetch(`${API_PATH}${QUERY_ACTOR}`);
+const actressPromise = fetch(`${API_PATH}${QUERY_ACTRESS}`);
+const supportingactorPromise = fetch(`${API_PATH}${QUERY_SUPPORTING_ACTOR}`);
+const supportingactressPromise = fetch(`${API_PATH}${QUERY_SUPPORTING_ACTRESS}`);
+const adaptedscreenplayPromise = fetch(`${API_PATH}${QUERY_ADAPTED_SCREENPLAY}`);
+const originalscreenplayPromise = fetch(`${API_PATH}${QUERY_ORIGINAL_SCREENPLAY}`);
+const animatedfeaturefilmPromise = fetch(`${API_PATH}${QUERY_ANIMATED_FEATURE_FILM}`);
+const cinematographyPromise = fetch(`${API_PATH}${QUERY_CINEMATOGRAPHY}`);
+const makeupandhairstylingPromise = fetch(`${API_PATH}${QUERY_MAKEUP_AND_HAIRSTYLING}`);
+const visualeffectsPromise = fetch(`${API_PATH}${QUERY_VISUAL_EFFECTS}`);
 
-const playerName = 'Dom';
+const playerName = 'Dave';
+
+// ******************************************************************************************************************************************************
 
 const testFunc = (e) => {
     e.preventDefault();
     console.log('weeeeee!');
 }
-
-/*
-
-1. 
-
-*/
-
-// ******************************************************************************************************************************************************
 
 const PlayerNoms = (props) => {
     const playerData = props.player.find(el => el.name.includes(playerName));
@@ -59,7 +71,6 @@ const PlayerNoms = (props) => {
         const playerId = playerData._id;
         const nomCategory = data.target.name;
         const nomValue = data.target.value;
-        const nameOrTitle = data.target.dataset.nameOrTitle;
         
         const mutations = [{
             patch: {
@@ -82,6 +93,21 @@ const PlayerNoms = (props) => {
         .then(result => console.log(result))
         .catch(error => console.error(error))
     }
+
+    const nomSelectOptions = {
+        picture: 'Best Picture',
+        director: 'Best Director',
+        actor: 'Best Actor',
+        actress: 'Best Actress',
+        supportingActor: 'Best Supporting Actor',
+        supportingActress: 'Best Supporting Actress',
+        adaptedScreenplay: 'Best Adapted Screenplay',
+        originalScreenplay: 'Best Original Screenplay',
+        animatedFeatureFilm: 'Best Animated Feature Film',
+        cinematography: 'Best Cinematography',
+        makeupAndHairstyling: 'Best Makeup and Hairstyling',
+        visualEffects: 'Best Visual Effects'
+    };
     
     return (
         <div>
@@ -90,20 +116,74 @@ const PlayerNoms = (props) => {
             <form>
                 <div>
                     <label htmlFor="picture">Best Picture: </label>
-                    <select name="picture" id="picture" defaultValue={findCurrentNom(props.picture)} onChange={updateNom} data-name-or-title="title">
+                    <select name="picture" id="picture" defaultValue={findCurrentNom(props.picture)} onChange={updateNom}>
                         {nomOptions(props.picture)}
                     </select>
                 </div>
                 <div>
                     <label htmlFor="director">Best Director: </label>
-                    <select name="director" id="director" defaultValue={findCurrentNom(props.director)} onChange={updateNom} data-name-or-title="name">
+                    <select name="director" id="director" defaultValue={findCurrentNom(props.director)} onChange={updateNom}>
                         {nomOptions(props.director)}
                     </select>
                 </div>
                 <div>
                     <label htmlFor="actor">Best Actor: </label>
-                    <select name="actor" id="actor" defaultValue={findCurrentNom(props.actor)} onChange={updateNom} data-name-or-title="name">
+                    <select name="actor" id="actor" defaultValue={findCurrentNom(props.actor)} onChange={updateNom}>
                         {nomOptions(props.actor)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="actress">Best Actress: </label>
+                    <select name="actress" id="actress" defaultValue={findCurrentNom(props.actress)} onChange={updateNom}>
+                        {nomOptions(props.actress)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="supportingActor">Best Supporting Actor: </label>
+                    <select name="supportingActor" id="supportingActor" defaultValue={findCurrentNom(props.supportingActor)} onChange={updateNom}>
+                        {nomOptions(props.supportingActor)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="supportingActress">Best Supporting Actress: </label>
+                    <select name="supportingActress" id="supportingActress" defaultValue={findCurrentNom(props.supportingActress)} onChange={updateNom}>
+                        {nomOptions(props.supportingActress)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="adaptedScreenplay">Best Adapted Screenplay: </label>
+                    <select name="adaptedScreenplay" id="adaptedScreenplay" defaultValue={findCurrentNom(props.adaptedScreenplay)} onChange={updateNom}>
+                        {nomOptions(props.adaptedScreenplay)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="originalScreenplay">Best Original Screenplay: </label>
+                    <select name="originalScreenplay" id="originalScreenplay" defaultValue={findCurrentNom(props.originalScreenplay)} onChange={updateNom}>
+                        {nomOptions(props.originalScreenplay)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="animatedFeatureFilm">Best Animated Feature Film: </label>
+                    <select name="animatedFeatureFilm" id="animatedFeatureFilm" defaultValue={findCurrentNom(props.animatedFeatureFilm)} onChange={updateNom}>
+                        {nomOptions(props.animatedFeatureFilm)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="cinematography">Best Cinematography: </label>
+                    <select name="cinematography" id="cinematography" defaultValue={findCurrentNom(props.cinematography)} onChange={updateNom}>
+                        {nomOptions(props.cinematography)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="makeupAndHairstyling">Best Makeup and Hairstyling: </label>
+                    <select name="makeupAndHairstyling" id="makeupAndHairstyling" defaultValue={findCurrentNom(props.makeupAndHairstyling)} onChange={updateNom}>
+                        {nomOptions(props.makeupAndHairstyling)}
+                    </select>
+                </div>
+                <div>
+                    <label htmlFor="visualEffects">Best Visual Effects: </label>
+                    <select name="visualEffects" id="visualEffects" defaultValue={findCurrentNom(props.visualEffects)} onChange={updateNom}>
+                        {nomOptions(props.visualEffects)}
                     </select>
                 </div>
                 <div>
@@ -121,6 +201,15 @@ function App() {
     const [director, setDirector] = useState(null);
     const [picture, setPicture] = useState(null);
     const [actor, setActor] = useState(null);
+    const [actress, setActress] = useState(null);
+    const [supportingActor, setSupportingActor] = useState(null);
+    const [supportingActress, setSupportingActress] = useState(null);
+    const [adaptedScreenplay, setAdaptedScreenplay] = useState(null);
+    const [originalScreenplay, setOriginalScreenplay] = useState(null);
+    const [animatedFeatureFilm, setAnimatedFeatureFilm] = useState(null);
+    const [cinematography, setCinematography] = useState(null);
+    const [makeupAndHairstyling, setMakeupAndHairstyling] = useState(null);
+    const [visualEffects, setVisualEffects] = useState(null);
     const [dataFetched, setDataFetched] = useState(false);
 
     useEffect(() => {
@@ -129,7 +218,16 @@ function App() {
                 playerPromise,
                 directorPromise,
                 picturePromise,
-                actorPromise
+                actorPromise,
+                actressPromise,
+                supportingactorPromise,
+                supportingactressPromise,
+                adaptedscreenplayPromise,
+                originalscreenplayPromise,
+                animatedfeaturefilmPromise,
+                cinematographyPromise,
+                makeupandhairstylingPromise,
+                visualeffectsPromise
             ])
             .then((responses) => {
                 return Promise.all(responses.map((response) => {
@@ -141,6 +239,15 @@ function App() {
                 setDirector(data.find(el => el.query.includes('"director"]')).result);
                 setPicture(data.find(el => el.query.includes('"picture"]')).result);
                 setActor(data.find(el => el.query.includes('"actor"]')).result);
+                setActress(data.find(el => el.query.includes('"actress"]')).result);
+                setSupportingActor(data.find(el => el.query.includes('"supportingActor"]')).result);
+                setSupportingActress(data.find(el => el.query.includes('"supportingActress"]')).result);
+                setAdaptedScreenplay(data.find(el => el.query.includes('"adaptedScreenplay"]')).result);
+                setOriginalScreenplay(data.find(el => el.query.includes('"originalScreenplay"]')).result);
+                setAnimatedFeatureFilm(data.find(el => el.query.includes('"animatedFeatureFilm"]')).result);
+                setCinematography(data.find(el => el.query.includes('"cinematography"]')).result);
+                setMakeupAndHairstyling(data.find(el => el.query.includes('"makeupAndHairstyling"]')).result);
+                setVisualEffects(data.find(el => el.query.includes('"visualEffects"]')).result);
             })
             .then(() => {
                 setDataFetched(true);
@@ -160,6 +267,15 @@ function App() {
                 director={director}
                 picture={picture}
                 actor={actor}
+                actress={actress}
+                supportingActor={supportingActor}
+                supportingActress={supportingActress}
+                adaptedScreenplay={adaptedScreenplay}
+                originalScreenplay={originalScreenplay}
+                animatedFeatureFilm={animatedFeatureFilm}
+                cinematography={cinematography}
+                makeupAndHairstyling={makeupAndHairstyling}
+                visualEffects={visualEffects}
             />}
         </div>
     );
