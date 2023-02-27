@@ -33,8 +33,6 @@ const testFunc = (e) => {
 
 const PlayerNoms = (props) => {
     const playerData = props.player.find(el => el.name.includes(playerName));
-
-    console.log('playerData:', playerData);
     
     const nomOptions = (noms) => {
         const sortedNoms = noms.sort((a, b) => {
@@ -49,11 +47,12 @@ const PlayerNoms = (props) => {
     }
 
     const findCurrentNom = (category) => {
-        // const playerNom = category.find(item => item._id === playerData[category[0]._type]._ref);
+        const playerNom = category.find((item) => {
+            const nom = item.title ? item.title : item.name;
+            return nom === playerData[category[0]._type];
+        });
 
-        // return playerNom.title ? playerNom.title : playerNom.name;
-
-        return null;
+        return playerNom.title ? playerNom.title : playerNom.name;
     }
     
     const updateNom = (data) => {
@@ -61,11 +60,6 @@ const PlayerNoms = (props) => {
         const nomCategory = data.target.name;
         const nomValue = data.target.value;
         const nameOrTitle = data.target.dataset.nameOrTitle;
-
-        console.log('playerId:', playerId);
-        console.log('nomCategory:', nomCategory);
-        console.log('nomValue:', nomValue);
-        console.log('nameOrTitle:', nameOrTitle);
         
         const mutations = [{
             patch: {
