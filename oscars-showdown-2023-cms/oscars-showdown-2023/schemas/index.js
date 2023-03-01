@@ -11,6 +11,7 @@ import cinematography from './cinematography';
 import makeupAndHairstyling from './makeup-and-hairstyling';
 import visualEffects from './visual-effects';
 import player from './player';
+import winners from './winners';
 
 export const schemaTypes = [
     picture,
@@ -25,5 +26,6 @@ export const schemaTypes = [
     cinematography,
     makeupAndHairstyling,
     visualEffects,
-    player
+    player,
+    winners
 ]
