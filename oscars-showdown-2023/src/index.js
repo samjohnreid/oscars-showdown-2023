@@ -37,6 +37,7 @@ const visualeffectsPromise = fetch(`${API_PATH}${QUERY_VISUAL_EFFECTS}`);
 const winnersPromise = fetch(`${API_PATH}${QUERY_WINNERS}`);
 
 const playerName = 'Dave';
+const path = window.location.pathname;
 
 // ******************************************************************************************************************************************************
 
@@ -199,8 +200,6 @@ const PlayerNoms = (props) => {
 // ******************************************************************************************************************************************************
 
 const Winners = (props) => {    
-    const playerData = props.player.find(el => el.name.includes(playerName));
-    
     const nomOptions = (noms) => {
         const sortedNoms = noms.sort((a, b) => {
             const nomA = a.name ? a.name.toUpperCase() : a.title.toUpperCase();
@@ -336,6 +335,165 @@ const Winners = (props) => {
 
 // ******************************************************************************************************************************************************
 
+const Results = () => {
+    console.log('hi sab!');
+    
+    return (
+        <div className="results-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Bianca</th>
+                        <th>Brett</th>
+                        <th>Dave</th>
+                        <th>Dom</th>
+                        <th>Sam</th>
+                        <th>Sissel</th>
+                        <th>Winner</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Best Picture</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Director</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Actor</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Actress</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Supporting Actor</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Supporting Actress</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Adapted Screenplay</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Original Screenplay</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Animated Feature Film</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Cinematography</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Makeup and Hairstyling</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                    <tr>
+                        <td>Best Visual Effects</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total Wins</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td>🙈</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    );
+}
+
+// ******************************************************************************************************************************************************
+
 function App() {
     const [player, setPlayer] = useState(null);
     const [director, setDirector] = useState(null);
@@ -407,7 +565,7 @@ function App() {
             
             <hr style={{margin: '50px 0'}} />
             
-            {dataFetched && <PlayerNoms
+            {dataFetched && path.includes('player') && <PlayerNoms
                 player={player}
                 director={director}
                 picture={picture}
@@ -425,7 +583,25 @@ function App() {
 
             <hr style={{margin: '50px 0'}} />
 
-            {dataFetched && <Winners
+            {dataFetched && path.includes('winners') && <Winners
+                director={director}
+                picture={picture}
+                actor={actor}
+                actress={actress}
+                supportingActor={supportingActor}
+                supportingActress={supportingActress}
+                adaptedScreenplay={adaptedScreenplay}
+                originalScreenplay={originalScreenplay}
+                animatedFeatureFilm={animatedFeatureFilm}
+                cinematography={cinematography}
+                makeupAndHairstyling={makeupAndHairstyling}
+                visualEffects={visualEffects}
+                winners={winners}
+            />}
+
+            <hr style={{margin: '50px 0'}} />
+
+            {dataFetched && path.includes('results') && <Results
                 player={player}
                 director={director}
                 picture={picture}
