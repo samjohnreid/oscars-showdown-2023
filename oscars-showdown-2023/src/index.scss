@@ -15,11 +15,14 @@ body {
 
 .results-table {
     border: 1px dashed green;
-    padding: 10px;
     
     td {
         &:first-child {
             text-align: right;
+        }
+
+        &:last-child {
+            text-align: left;
         }
         
         border: 1px solid gray;
@@ -28,12 +31,44 @@ body {
     }
 
     th {
-        padding: 0 10px 5px 10px;
+        border: 1px solid gray;
+        padding: 10px;
     }
 
     tfoot tr {
         background: red;
         color: white;
         font-weight: bold;
+    }
+}
+
+.nedry-block {
+    background: #f6f6f6;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    div {
+        position: absolute;
+
+        &::after {
+            background: #f6f6f6;
+            content: '';
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 1px;
+        }
+    }
+
+    img {
+        display: block;
+        height: 200px;
     }
 }
