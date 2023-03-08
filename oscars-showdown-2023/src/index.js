@@ -143,85 +143,86 @@ const PlayerNoms = (props) => {
     
     return (
         <div>
-            <h2>Nominations for {playerName}</h2>
-            <br />
-            <form onSubmit={testFunc}>
-                <div>
-                    <label htmlFor="picture">Best Picture: </label>
-                    <select name="picture" id="picture" defaultValue={findCurrentNom(props.picture)} onChange={updateNom}>
-                        {nomOptions(props.picture)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="director">Best Director: </label>
-                    <select name="director" id="director" defaultValue={findCurrentNom(props.director)} onChange={updateNom}>
-                        {nomOptions(props.director)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="actor">Best Actor: </label>
-                    <select name="actor" id="actor" defaultValue={findCurrentNom(props.actor)} onChange={updateNom}>
-                        {nomOptions(props.actor)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="actress">Best Actress: </label>
-                    <select name="actress" id="actress" defaultValue={findCurrentNom(props.actress)} onChange={updateNom}>
-                        {nomOptions(props.actress)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="supportingActor">Best Supporting Actor: </label>
-                    <select name="supportingActor" id="supportingActor" defaultValue={findCurrentNom(props.supportingActor)} onChange={updateNom}>
-                        {nomOptions(props.supportingActor)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="supportingActress">Best Supporting Actress: </label>
-                    <select name="supportingActress" id="supportingActress" defaultValue={findCurrentNom(props.supportingActress)} onChange={updateNom}>
-                        {nomOptions(props.supportingActress)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="adaptedScreenplay">Best Adapted Screenplay: </label>
-                    <select name="adaptedScreenplay" id="adaptedScreenplay" defaultValue={findCurrentNom(props.adaptedScreenplay)} onChange={updateNom}>
-                        {nomOptions(props.adaptedScreenplay)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="originalScreenplay">Best Original Screenplay: </label>
-                    <select name="originalScreenplay" id="originalScreenplay" defaultValue={findCurrentNom(props.originalScreenplay)} onChange={updateNom}>
-                        {nomOptions(props.originalScreenplay)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="animatedFeatureFilm">Best Animated Feature Film: </label>
-                    <select name="animatedFeatureFilm" id="animatedFeatureFilm" defaultValue={findCurrentNom(props.animatedFeatureFilm)} onChange={updateNom}>
-                        {nomOptions(props.animatedFeatureFilm)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="cinematography">Best Cinematography: </label>
-                    <select name="cinematography" id="cinematography" defaultValue={findCurrentNom(props.cinematography)} onChange={updateNom}>
-                        {nomOptions(props.cinematography)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="makeupAndHairstyling">Best Makeup and Hairstyling: </label>
-                    <select name="makeupAndHairstyling" id="makeupAndHairstyling" defaultValue={findCurrentNom(props.makeupAndHairstyling)} onChange={updateNom}>
-                        {nomOptions(props.makeupAndHairstyling)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="visualEffects">Best Visual Effects: </label>
-                    <select name="visualEffects" id="visualEffects" defaultValue={findCurrentNom(props.visualEffects)} onChange={updateNom}>
-                        {nomOptions(props.visualEffects)}
-                    </select>
-                </div>
-                <div>
-                    <input type="submit" />
-                </div>
-            </form>
+            <h2>Nominations for <strong>{playerName}</strong></h2>
+            <div class="nom-wrapper">
+                <form onSubmit={testFunc}>
+                    <div>
+                        <label htmlFor="picture">Best Picture: </label>
+                        <select name="picture" id="picture" defaultValue={findCurrentNom(props.picture)} onChange={updateNom}>
+                            {nomOptions(props.picture)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="director">Best Director: </label>
+                        <select name="director" id="director" defaultValue={findCurrentNom(props.director)} onChange={updateNom}>
+                            {nomOptions(props.director)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="actor">Best Actor: </label>
+                        <select name="actor" id="actor" defaultValue={findCurrentNom(props.actor)} onChange={updateNom}>
+                            {nomOptions(props.actor)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="actress">Best Actress: </label>
+                        <select name="actress" id="actress" defaultValue={findCurrentNom(props.actress)} onChange={updateNom}>
+                            {nomOptions(props.actress)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="supportingActor">Best Supporting Actor: </label>
+                        <select name="supportingActor" id="supportingActor" defaultValue={findCurrentNom(props.supportingActor)} onChange={updateNom}>
+                            {nomOptions(props.supportingActor)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="supportingActress">Best Supporting Actress: </label>
+                        <select name="supportingActress" id="supportingActress" defaultValue={findCurrentNom(props.supportingActress)} onChange={updateNom}>
+                            {nomOptions(props.supportingActress)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="adaptedScreenplay">Best Adapted Screenplay: </label>
+                        <select name="adaptedScreenplay" id="adaptedScreenplay" defaultValue={findCurrentNom(props.adaptedScreenplay)} onChange={updateNom}>
+                            {nomOptions(props.adaptedScreenplay)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="originalScreenplay">Best Original Screenplay: </label>
+                        <select name="originalScreenplay" id="originalScreenplay" defaultValue={findCurrentNom(props.originalScreenplay)} onChange={updateNom}>
+                            {nomOptions(props.originalScreenplay)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="animatedFeatureFilm">Best Animated Feature Film: </label>
+                        <select name="animatedFeatureFilm" id="animatedFeatureFilm" defaultValue={findCurrentNom(props.animatedFeatureFilm)} onChange={updateNom}>
+                            {nomOptions(props.animatedFeatureFilm)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="cinematography">Best Cinematography: </label>
+                        <select name="cinematography" id="cinematography" defaultValue={findCurrentNom(props.cinematography)} onChange={updateNom}>
+                            {nomOptions(props.cinematography)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="makeupAndHairstyling">Best Makeup and Hairstyling: </label>
+                        <select name="makeupAndHairstyling" id="makeupAndHairstyling" defaultValue={findCurrentNom(props.makeupAndHairstyling)} onChange={updateNom}>
+                            {nomOptions(props.makeupAndHairstyling)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="visualEffects">Best Visual Effects: </label>
+                        <select name="visualEffects" id="visualEffects" defaultValue={findCurrentNom(props.visualEffects)} onChange={updateNom}>
+                            {nomOptions(props.visualEffects)}
+                        </select>
+                    </div>
+                    <div>
+                        <input type="submit" />
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
@@ -279,82 +280,83 @@ const Winners = (props) => {
     
     return (
         <div>
-            <h2>Winners!</h2>
-            <br />
-            <form>
-                <div>
-                    <label htmlFor="picture">Best Picture: </label>
-                    <select name="picture" id="picture" defaultValue={findCurrentNom(props.picture)} onChange={updateNom}>
-                        {nomOptions(props.picture)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="director">Best Director: </label>
-                    <select name="director" id="director" defaultValue={findCurrentNom(props.director)} onChange={updateNom}>
-                        {nomOptions(props.director)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="actor">Best Actor: </label>
-                    <select name="actor" id="actor" defaultValue={findCurrentNom(props.actor)} onChange={updateNom}>
-                        {nomOptions(props.actor)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="actress">Best Actress: </label>
-                    <select name="actress" id="actress" defaultValue={findCurrentNom(props.actress)} onChange={updateNom}>
-                        {nomOptions(props.actress)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="supportingActor">Best Supporting Actor: </label>
-                    <select name="supportingActor" id="supportingActor" defaultValue={findCurrentNom(props.supportingActor)} onChange={updateNom}>
-                        {nomOptions(props.supportingActor)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="supportingActress">Best Supporting Actress: </label>
-                    <select name="supportingActress" id="supportingActress" defaultValue={findCurrentNom(props.supportingActress)} onChange={updateNom}>
-                        {nomOptions(props.supportingActress)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="adaptedScreenplay">Best Adapted Screenplay: </label>
-                    <select name="adaptedScreenplay" id="adaptedScreenplay" defaultValue={findCurrentNom(props.adaptedScreenplay)} onChange={updateNom}>
-                        {nomOptions(props.adaptedScreenplay)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="originalScreenplay">Best Original Screenplay: </label>
-                    <select name="originalScreenplay" id="originalScreenplay" defaultValue={findCurrentNom(props.originalScreenplay)} onChange={updateNom}>
-                        {nomOptions(props.originalScreenplay)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="animatedFeatureFilm">Best Animated Feature Film: </label>
-                    <select name="animatedFeatureFilm" id="animatedFeatureFilm" defaultValue={findCurrentNom(props.animatedFeatureFilm)} onChange={updateNom}>
-                        {nomOptions(props.animatedFeatureFilm)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="cinematography">Best Cinematography: </label>
-                    <select name="cinematography" id="cinematography" defaultValue={findCurrentNom(props.cinematography)} onChange={updateNom}>
-                        {nomOptions(props.cinematography)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="makeupAndHairstyling">Best Makeup and Hairstyling: </label>
-                    <select name="makeupAndHairstyling" id="makeupAndHairstyling" defaultValue={findCurrentNom(props.makeupAndHairstyling)} onChange={updateNom}>
-                        {nomOptions(props.makeupAndHairstyling)}
-                    </select>
-                </div>
-                <div>
-                    <label htmlFor="visualEffects">Best Visual Effects: </label>
-                    <select name="visualEffects" id="visualEffects" defaultValue={findCurrentNom(props.visualEffects)} onChange={updateNom}>
-                        {nomOptions(props.visualEffects)}
-                    </select>
-                </div>
-            </form>
+            <h2><strong>Winners!</strong></h2>
+            <div class="nom-wrapper">
+                <form>
+                    <div>
+                        <label htmlFor="picture">Best Picture: </label>
+                        <select name="picture" id="picture" defaultValue={findCurrentNom(props.picture)} onChange={updateNom}>
+                            {nomOptions(props.picture)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="director">Best Director: </label>
+                        <select name="director" id="director" defaultValue={findCurrentNom(props.director)} onChange={updateNom}>
+                            {nomOptions(props.director)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="actor">Best Actor: </label>
+                        <select name="actor" id="actor" defaultValue={findCurrentNom(props.actor)} onChange={updateNom}>
+                            {nomOptions(props.actor)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="actress">Best Actress: </label>
+                        <select name="actress" id="actress" defaultValue={findCurrentNom(props.actress)} onChange={updateNom}>
+                            {nomOptions(props.actress)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="supportingActor">Best Supporting Actor: </label>
+                        <select name="supportingActor" id="supportingActor" defaultValue={findCurrentNom(props.supportingActor)} onChange={updateNom}>
+                            {nomOptions(props.supportingActor)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="supportingActress">Best Supporting Actress: </label>
+                        <select name="supportingActress" id="supportingActress" defaultValue={findCurrentNom(props.supportingActress)} onChange={updateNom}>
+                            {nomOptions(props.supportingActress)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="adaptedScreenplay">Best Adapted Screenplay: </label>
+                        <select name="adaptedScreenplay" id="adaptedScreenplay" defaultValue={findCurrentNom(props.adaptedScreenplay)} onChange={updateNom}>
+                            {nomOptions(props.adaptedScreenplay)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="originalScreenplay">Best Original Screenplay: </label>
+                        <select name="originalScreenplay" id="originalScreenplay" defaultValue={findCurrentNom(props.originalScreenplay)} onChange={updateNom}>
+                            {nomOptions(props.originalScreenplay)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="animatedFeatureFilm">Best Animated Feature Film: </label>
+                        <select name="animatedFeatureFilm" id="animatedFeatureFilm" defaultValue={findCurrentNom(props.animatedFeatureFilm)} onChange={updateNom}>
+                            {nomOptions(props.animatedFeatureFilm)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="cinematography">Best Cinematography: </label>
+                        <select name="cinematography" id="cinematography" defaultValue={findCurrentNom(props.cinematography)} onChange={updateNom}>
+                            {nomOptions(props.cinematography)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="makeupAndHairstyling">Best Makeup and Hairstyling: </label>
+                        <select name="makeupAndHairstyling" id="makeupAndHairstyling" defaultValue={findCurrentNom(props.makeupAndHairstyling)} onChange={updateNom}>
+                            {nomOptions(props.makeupAndHairstyling)}
+                        </select>
+                    </div>
+                    <div>
+                        <label htmlFor="visualEffects">Best Visual Effects: </label>
+                        <select name="visualEffects" id="visualEffects" defaultValue={findCurrentNom(props.visualEffects)} onChange={updateNom}>
+                            {nomOptions(props.visualEffects)}
+                        </select>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
@@ -397,155 +399,160 @@ const Results = (props) => {
     }
     
     return (
-        <div className="results-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Bianca</th>
-                        <th>Brett</th>
-                        <th>Dave</th>
-                        <th>Dom</th>
-                        <th>Sam</th>
-                        <th>Sissel</th>
-                        <th>Oscar Winner</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Best Picture</td>
-                        <td>{verdict('Bianca', 'picture')}</td>
-                        <td>{verdict('Brett', 'picture')}</td>
-                        <td>{verdict('Dave', 'picture')}</td>
-                        <td>{verdict('Dom', 'picture')}</td>
-                        <td>{verdict('Sam', 'picture')}</td>
-                        <td>{verdict('Sissel', 'picture')}</td>
-                        <td>{winners['picture'] === '-- Please select a nominee!' ? '🙈' : winners['picture']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Director</td>
-                        <td>{verdict('Bianca', 'director')}</td>
-                        <td>{verdict('Brett', 'director')}</td>
-                        <td>{verdict('Dave', 'director')}</td>
-                        <td>{verdict('Dom', 'director')}</td>
-                        <td>{verdict('Sam', 'director')}</td>
-                        <td>{verdict('Sissel', 'director')}</td>
-                        <td>{winners['director'] === '-- Please select a nominee!' ? '🙈' : winners['director']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Actor</td>
-                        <td>{verdict('Bianca', 'actor')}</td>
-                        <td>{verdict('Brett', 'actor')}</td>
-                        <td>{verdict('Dave', 'actor')}</td>
-                        <td>{verdict('Dom', 'actor')}</td>
-                        <td>{verdict('Sam', 'actor')}</td>
-                        <td>{verdict('Sissel', 'actor')}</td>
-                        <td>{winners['actor'] === '-- Please select a nominee!' ? '🙈' : winners['actor']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Actress</td>
-                        <td>{verdict('Bianca', 'actress')}</td>
-                        <td>{verdict('Brett', 'actress')}</td>
-                        <td>{verdict('Dave', 'actress')}</td>
-                        <td>{verdict('Dom', 'actress')}</td>
-                        <td>{verdict('Sam', 'actress')}</td>
-                        <td>{verdict('Sissel', 'actress')}</td>
-                        <td>{winners['actress'] === '-- Please select a nominee!' ? '🙈' : winners['actress']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Supporting Actor</td>
-                        <td>{verdict('Bianca', 'supportingActor')}</td>
-                        <td>{verdict('Brett', 'supportingActor')}</td>
-                        <td>{verdict('Dave', 'supportingActor')}</td>
-                        <td>{verdict('Dom', 'supportingActor')}</td>
-                        <td>{verdict('Sam', 'supportingActor')}</td>
-                        <td>{verdict('Sissel', 'supportingActor')}</td>
-                        <td>{winners['supportingActor'] === '-- Please select a nominee!' ? '🙈' : winners['supportingActor']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Supporting Actress</td>
-                        <td>{verdict('Bianca', 'supportingActress')}</td>
-                        <td>{verdict('Brett', 'supportingActress')}</td>
-                        <td>{verdict('Dave', 'supportingActress')}</td>
-                        <td>{verdict('Dom', 'supportingActress')}</td>
-                        <td>{verdict('Sam', 'supportingActress')}</td>
-                        <td>{verdict('Sissel', 'supportingActress')}</td>
-                        <td>{winners['supportingActress'] === '-- Please select a nominee!' ? '🙈' : winners['supportingActress']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Adapted Screenplay</td>
-                        <td>{verdict('Bianca', 'adaptedScreenplay')}</td>
-                        <td>{verdict('Brett', 'adaptedScreenplay')}</td>
-                        <td>{verdict('Dave', 'adaptedScreenplay')}</td>
-                        <td>{verdict('Dom', 'adaptedScreenplay')}</td>
-                        <td>{verdict('Sam', 'adaptedScreenplay')}</td>
-                        <td>{verdict('Sissel', 'adaptedScreenplay')}</td>
-                        <td>{winners['adaptedScreenplay'] === '-- Please select a nominee!' ? '🙈' : winners['adaptedScreenplay']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Original Screenplay</td>
-                        <td>{verdict('Bianca', 'originalScreenplay')}</td>
-                        <td>{verdict('Brett', 'originalScreenplay')}</td>
-                        <td>{verdict('Dave', 'originalScreenplay')}</td>
-                        <td>{verdict('Dom', 'originalScreenplay')}</td>
-                        <td>{verdict('Sam', 'originalScreenplay')}</td>
-                        <td>{verdict('Sissel', 'originalScreenplay')}</td>
-                        <td>{winners['originalScreenplay'] === '-- Please select a nominee!' ? '🙈' : winners['originalScreenplay']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Animated Feature Film</td>
-                        <td>{verdict('Bianca', 'animatedFeatureFilm')}</td>
-                        <td>{verdict('Brett', 'animatedFeatureFilm')}</td>
-                        <td>{verdict('Dave', 'animatedFeatureFilm')}</td>
-                        <td>{verdict('Dom', 'animatedFeatureFilm')}</td>
-                        <td>{verdict('Sam', 'animatedFeatureFilm')}</td>
-                        <td>{verdict('Sissel', 'animatedFeatureFilm')}</td>
-                        <td>{winners['animatedFeatureFilm'] === '-- Please select a nominee!' ? '🙈' : winners['animatedFeatureFilm']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Cinematography</td>
-                        <td>{verdict('Bianca', 'cinematography')}</td>
-                        <td>{verdict('Brett', 'cinematography')}</td>
-                        <td>{verdict('Dave', 'cinematography')}</td>
-                        <td>{verdict('Dom', 'cinematography')}</td>
-                        <td>{verdict('Sam', 'cinematography')}</td>
-                        <td>{verdict('Sissel', 'cinematography')}</td>
-                        <td>{winners['cinematography'] === '-- Please select a nominee!' ? '🙈' : winners['cinematography']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Makeup and Hairstyling</td>
-                        <td>{verdict('Bianca', 'makeupAndHairstyling')}</td>
-                        <td>{verdict('Brett', 'makeupAndHairstyling')}</td>
-                        <td>{verdict('Dave', 'makeupAndHairstyling')}</td>
-                        <td>{verdict('Dom', 'makeupAndHairstyling')}</td>
-                        <td>{verdict('Sam', 'makeupAndHairstyling')}</td>
-                        <td>{verdict('Sissel', 'makeupAndHairstyling')}</td>
-                        <td>{winners['makeupAndHairstyling'] === '-- Please select a nominee!' ? '🙈' : winners['makeupAndHairstyling']}</td>
-                    </tr>
-                    <tr>
-                        <td>Best Visual Effects</td>
-                        <td>{verdict('Bianca', 'visualEffects')}</td>
-                        <td>{verdict('Brett', 'visualEffects')}</td>
-                        <td>{verdict('Dave', 'visualEffects')}</td>
-                        <td>{verdict('Dom', 'visualEffects')}</td>
-                        <td>{verdict('Sam', 'visualEffects')}</td>
-                        <td>{verdict('Sissel', 'visualEffects')}</td>
-                        <td>{winners['visualEffects'] === '-- Please select a nominee!' ? '🙈' : winners['visualEffects']}</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>Total Wins</td>
-                        <td>{playerScore('Bianca')}</td>
-                        <td>{playerScore('Brett')}</td>
-                        <td>{playerScore('Dave')}</td>
-                        <td>{playerScore('Dom')}</td>
-                        <td>{playerScore('Sam')}</td>
-                        <td>{playerScore('Sissel')}</td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
+        <div>
+            <h2>And the award goes to...</h2>
+            <div class="nom-wrapper">
+                <div className="results-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Bianca</th>
+                                <th>Brett</th>
+                                <th>Dave</th>
+                                <th>Dom</th>
+                                <th>Sam</th>
+                                <th>Sissel</th>
+                                <th>Oscar Winner</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Best Picture</td>
+                                <td>{verdict('Bianca', 'picture')}</td>
+                                <td>{verdict('Brett', 'picture')}</td>
+                                <td>{verdict('Dave', 'picture')}</td>
+                                <td>{verdict('Dom', 'picture')}</td>
+                                <td>{verdict('Sam', 'picture')}</td>
+                                <td>{verdict('Sissel', 'picture')}</td>
+                                <td>{winners['picture'] === '-- Please select a nominee!' ? '🙈' : winners['picture']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Director</td>
+                                <td>{verdict('Bianca', 'director')}</td>
+                                <td>{verdict('Brett', 'director')}</td>
+                                <td>{verdict('Dave', 'director')}</td>
+                                <td>{verdict('Dom', 'director')}</td>
+                                <td>{verdict('Sam', 'director')}</td>
+                                <td>{verdict('Sissel', 'director')}</td>
+                                <td>{winners['director'] === '-- Please select a nominee!' ? '🙈' : winners['director']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Actor</td>
+                                <td>{verdict('Bianca', 'actor')}</td>
+                                <td>{verdict('Brett', 'actor')}</td>
+                                <td>{verdict('Dave', 'actor')}</td>
+                                <td>{verdict('Dom', 'actor')}</td>
+                                <td>{verdict('Sam', 'actor')}</td>
+                                <td>{verdict('Sissel', 'actor')}</td>
+                                <td>{winners['actor'] === '-- Please select a nominee!' ? '🙈' : winners['actor']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Actress</td>
+                                <td>{verdict('Bianca', 'actress')}</td>
+                                <td>{verdict('Brett', 'actress')}</td>
+                                <td>{verdict('Dave', 'actress')}</td>
+                                <td>{verdict('Dom', 'actress')}</td>
+                                <td>{verdict('Sam', 'actress')}</td>
+                                <td>{verdict('Sissel', 'actress')}</td>
+                                <td>{winners['actress'] === '-- Please select a nominee!' ? '🙈' : winners['actress']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Supporting Actor</td>
+                                <td>{verdict('Bianca', 'supportingActor')}</td>
+                                <td>{verdict('Brett', 'supportingActor')}</td>
+                                <td>{verdict('Dave', 'supportingActor')}</td>
+                                <td>{verdict('Dom', 'supportingActor')}</td>
+                                <td>{verdict('Sam', 'supportingActor')}</td>
+                                <td>{verdict('Sissel', 'supportingActor')}</td>
+                                <td>{winners['supportingActor'] === '-- Please select a nominee!' ? '🙈' : winners['supportingActor']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Supporting Actress</td>
+                                <td>{verdict('Bianca', 'supportingActress')}</td>
+                                <td>{verdict('Brett', 'supportingActress')}</td>
+                                <td>{verdict('Dave', 'supportingActress')}</td>
+                                <td>{verdict('Dom', 'supportingActress')}</td>
+                                <td>{verdict('Sam', 'supportingActress')}</td>
+                                <td>{verdict('Sissel', 'supportingActress')}</td>
+                                <td>{winners['supportingActress'] === '-- Please select a nominee!' ? '🙈' : winners['supportingActress']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Adapted Screenplay</td>
+                                <td>{verdict('Bianca', 'adaptedScreenplay')}</td>
+                                <td>{verdict('Brett', 'adaptedScreenplay')}</td>
+                                <td>{verdict('Dave', 'adaptedScreenplay')}</td>
+                                <td>{verdict('Dom', 'adaptedScreenplay')}</td>
+                                <td>{verdict('Sam', 'adaptedScreenplay')}</td>
+                                <td>{verdict('Sissel', 'adaptedScreenplay')}</td>
+                                <td>{winners['adaptedScreenplay'] === '-- Please select a nominee!' ? '🙈' : winners['adaptedScreenplay']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Original Screenplay</td>
+                                <td>{verdict('Bianca', 'originalScreenplay')}</td>
+                                <td>{verdict('Brett', 'originalScreenplay')}</td>
+                                <td>{verdict('Dave', 'originalScreenplay')}</td>
+                                <td>{verdict('Dom', 'originalScreenplay')}</td>
+                                <td>{verdict('Sam', 'originalScreenplay')}</td>
+                                <td>{verdict('Sissel', 'originalScreenplay')}</td>
+                                <td>{winners['originalScreenplay'] === '-- Please select a nominee!' ? '🙈' : winners['originalScreenplay']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Animated Feature Film</td>
+                                <td>{verdict('Bianca', 'animatedFeatureFilm')}</td>
+                                <td>{verdict('Brett', 'animatedFeatureFilm')}</td>
+                                <td>{verdict('Dave', 'animatedFeatureFilm')}</td>
+                                <td>{verdict('Dom', 'animatedFeatureFilm')}</td>
+                                <td>{verdict('Sam', 'animatedFeatureFilm')}</td>
+                                <td>{verdict('Sissel', 'animatedFeatureFilm')}</td>
+                                <td>{winners['animatedFeatureFilm'] === '-- Please select a nominee!' ? '🙈' : winners['animatedFeatureFilm']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Cinematography</td>
+                                <td>{verdict('Bianca', 'cinematography')}</td>
+                                <td>{verdict('Brett', 'cinematography')}</td>
+                                <td>{verdict('Dave', 'cinematography')}</td>
+                                <td>{verdict('Dom', 'cinematography')}</td>
+                                <td>{verdict('Sam', 'cinematography')}</td>
+                                <td>{verdict('Sissel', 'cinematography')}</td>
+                                <td>{winners['cinematography'] === '-- Please select a nominee!' ? '🙈' : winners['cinematography']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Makeup and Hairstyling</td>
+                                <td>{verdict('Bianca', 'makeupAndHairstyling')}</td>
+                                <td>{verdict('Brett', 'makeupAndHairstyling')}</td>
+                                <td>{verdict('Dave', 'makeupAndHairstyling')}</td>
+                                <td>{verdict('Dom', 'makeupAndHairstyling')}</td>
+                                <td>{verdict('Sam', 'makeupAndHairstyling')}</td>
+                                <td>{verdict('Sissel', 'makeupAndHairstyling')}</td>
+                                <td>{winners['makeupAndHairstyling'] === '-- Please select a nominee!' ? '🙈' : winners['makeupAndHairstyling']}</td>
+                            </tr>
+                            <tr>
+                                <td>Best Visual Effects</td>
+                                <td>{verdict('Bianca', 'visualEffects')}</td>
+                                <td>{verdict('Brett', 'visualEffects')}</td>
+                                <td>{verdict('Dave', 'visualEffects')}</td>
+                                <td>{verdict('Dom', 'visualEffects')}</td>
+                                <td>{verdict('Sam', 'visualEffects')}</td>
+                                <td>{verdict('Sissel', 'visualEffects')}</td>
+                                <td>{winners['visualEffects'] === '-- Please select a nominee!' ? '🙈' : winners['visualEffects']}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total Wins</td>
+                                <td>{playerScore('Bianca')}</td>
+                                <td>{playerScore('Brett')}</td>
+                                <td>{playerScore('Dave')}</td>
+                                <td>{playerScore('Dom')}</td>
+                                <td>{playerScore('Sam')}</td>
+                                <td>{playerScore('Sissel')}</td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
         </div>
     );
 }
@@ -618,7 +625,7 @@ function App() {
     
     return (
         <div>
-            <h1>Oscars Showdown 2023!</h1>
+            <h1>Oscars Showdown 2023</h1>
                         
             {dataFetched && path.includes('player') && <PlayerNoms
                 player={player}
