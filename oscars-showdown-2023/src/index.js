@@ -369,7 +369,7 @@ const Results = (props) => {
         let score = 0;
 
         for (const playerNom in playerData) {
-            if (playerData[playerNom] === winners[playerNom]) {
+            if (playerData[playerNom] !== '-- Please select a nominee!' && playerData[playerNom] === winners[playerNom]) {
                 score++;
             }
         }
