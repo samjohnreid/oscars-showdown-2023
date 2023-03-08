@@ -63,6 +63,7 @@ body {
 .results-table {
 
     table {
+        background: #fff;
         margin: 0 auto;
     }
     
@@ -126,6 +127,32 @@ body {
 .nom-wrapper {
     background: #fff;
     margin: 50px auto 0;
+    padding: 30px;
+    width: 80%;
+
+    form {
+        text-align: center;
+
+        & > div {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        select {
+            text-align: center;
+        }
+    }
+}
+
+.results-wrapper {
+    background: #fff;
+    margin: 50px auto 0;
+    overflow-x: auto;
     padding: 30px;
     width: 80%;
 

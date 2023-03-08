@@ -144,7 +144,7 @@ const PlayerNoms = (props) => {
     return (
         <div>
             <h2>Nominations for <strong>{playerName}</strong></h2>
-            <div class="nom-wrapper">
+            <div className="nom-wrapper">
                 <form onSubmit={testFunc}>
                     <div>
                         <label htmlFor="picture">Best Picture: </label>
@@ -281,7 +281,7 @@ const Winners = (props) => {
     return (
         <div>
             <h2><strong>Winners!</strong></h2>
-            <div class="nom-wrapper">
+            <div className="nom-wrapper">
                 <form>
                     <div>
                         <label htmlFor="picture">Best Picture: </label>
@@ -401,7 +401,7 @@ const Results = (props) => {
     return (
         <div>
             <h2>And the award goes to...</h2>
-            <div class="nom-wrapper">
+            <div className="results-wrapper">
                 <div className="results-table">
                     <table>
                         <thead>
