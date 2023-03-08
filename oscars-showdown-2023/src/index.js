@@ -37,22 +37,12 @@ const visualeffectsPromise = fetch(`${API_PATH}${QUERY_VISUAL_EFFECTS}`);
 const winnersPromise = fetch(`${API_PATH}${QUERY_WINNERS}`);
 
 const path = window.location.pathname;
-const playerNameOriginal = path.split('/')[2];
-const playerName = playerNameOriginal.charAt(0).toUpperCase() + playerNameOriginal.slice(1); // all this just to capitalize the first letter! 😡
-
-// ******************************************************************************************************************************************************
-
-const testFunc = (e) => {
-    e.preventDefault();
-    console.log('weeeeee!');
-}
 
 // ******************************************************************************************************************************************************
 
 const PlayerNoms = (props) => {
-    console.log('hello!');
-
-    const testVar = 'Sab';
+    const playerNameOriginal = path.split('/')[4];
+    const playerName = playerNameOriginal.charAt(0).toUpperCase() + playerNameOriginal.slice(1); // all this just to capitalize the first letter! 😡
     
     const playerData = props.player.find(el => el.name.includes(playerName));
     
@@ -105,28 +95,57 @@ const PlayerNoms = (props) => {
     }
 
     const authCheck = () => {
-        const authCode = path.split('/')[3];
+        const authCode = path.split('/')[5];
         
         if (playerName === 'Bianca' && authCode === 'Ok6Qpil6zz') {
             return true;
+        } else if (playerName === 'Brett' && authCode === 'jO04EKjNjH') {
+            return true;
+        } else if (playerName === 'Dave' && authCode === 'qe29GVNc7q') {
+            return true;
         } else if (playerName === 'Dom' && authCode === 'qDnzRWCaFw') {
+            return true;
+        } else if (playerName === 'Sam' && authCode === '88F1utJhL7') {
+            return true;
+        } else if (playerName === 'Sissel' && authCode === '6H03XsZCFa') {
             return true;
         } else {
             return false;
         }
     }
+
+    const testFunc = (e) => {
+        e.preventDefault();
+        const noms = e.target.elements;
+        let unselectedNoms = false;
+
+        for (const nom of noms) {
+            if (nom.value === '-- Please select a nominee!') {
+                unselectedNoms = true;
+            }
+        }
+
+        if (unselectedNoms) {
+            alert('Please make sure you select a nomination in every category!')
+        } else {
+            if (window.confirm('Thanks for playing! You can make changes to your nominations up until the day of the Oscars. Check out the results here!')) {
+                console.log('huh?');
+                window.location.href = "/oscars-showdown/2023/results";
+            }
+        }
+    }
     
     if (!authCheck()) {
         return (
-            <div className="nedry-block"><div><img src="/nedry.webp" /></div></div>
+            <div className="nedry-block"><div><img src="https://coolmoviemerch.com/oscars-showdown/2023/nedry.webp" /></div></div>
         );
     }
     
     return (
         <div>
-            <h2>Nominations for {playerName}!</h2>
+            <h2>Nominations for {playerName}</h2>
             <br />
-            <form>
+            <form onSubmit={testFunc}>
                 <div>
                     <label htmlFor="picture">Best Picture: </label>
                     <select name="picture" id="picture" defaultValue={findCurrentNom(props.picture)} onChange={updateNom}>
@@ -200,7 +219,7 @@ const PlayerNoms = (props) => {
                     </select>
                 </div>
                 <div>
-                    <input type="submit" onClick={testFunc} />
+                    <input type="submit" />
                 </div>
             </form>
         </div>
@@ -335,9 +354,6 @@ const Winners = (props) => {
                         {nomOptions(props.visualEffects)}
                     </select>
                 </div>
-                <div>
-                    <input type="submit" onClick={testFunc} />
-                </div>
             </form>
         </div>
     );
@@ -347,6 +363,19 @@ const Winners = (props) => {
 
 const Results = (props) => {
     const winners = props.winners[0];
+
+    const playerScore = (player) => {
+        const playerData = props.player.find(el => el.name.includes(player));
+        let score = 0;
+
+        for (const playerNom in playerData) {
+            if (playerData[playerNom] === winners[playerNom]) {
+                score++;
+            }
+        }
+
+        return score;
+    }
 
     const verdict = (player, category) => {
         const playerData = props.player.find(el => el.name.includes(player));
@@ -507,12 +536,12 @@ const Results = (props) => {
                 <tfoot>
                     <tr>
                         <td>Total Wins</td>
-                        <td>🙈</td>
-                        <td>🙈</td>
-                        <td>🙈</td>
-                        <td>🙈</td>
-                        <td>🙈</td>
-                        <td>🙈</td>
+                        <td>{playerScore('Bianca')}</td>
+                        <td>{playerScore('Brett')}</td>
+                        <td>{playerScore('Dave')}</td>
+                        <td>{playerScore('Dom')}</td>
+                        <td>{playerScore('Sam')}</td>
+                        <td>{playerScore('Sissel')}</td>
                         <td></td>
                     </tr>
                 </tfoot>
@@ -589,11 +618,8 @@ function App() {
     
     return (
         <div>
-            <h1>Hello!</h1>
-            <p>Welcome to Oscars Showdown 2023!</p>
-            
-            <hr style={{margin: '50px 0'}} />
-            
+            <h1>Oscars Showdown 2023!</h1>
+                        
             {dataFetched && path.includes('player') && <PlayerNoms
                 player={player}
                 director={director}
@@ -610,8 +636,6 @@ function App() {
                 visualEffects={visualEffects}
             />}
 
-            <hr style={{margin: '50px 0'}} />
-
             {dataFetched && path.includes('winners') && <Winners
                 director={director}
                 picture={picture}
@@ -627,8 +651,6 @@ function App() {
                 visualEffects={visualEffects}
                 winners={winners}
             />}
-
-            <hr style={{margin: '50px 0'}} />
 
             {dataFetched && path.includes('results') && <Results
                 player={player}
