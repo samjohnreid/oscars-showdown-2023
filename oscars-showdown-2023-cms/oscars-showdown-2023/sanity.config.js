@@ -5,7 +5,7 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'Oscars Showdown 2023',
+  title: 'Oscars Showdown 2024',
 
   projectId: 'd2cpdrm6',
   dataset: 'production',

@@ -85,7 +85,7 @@ const PlayerNoms = (props) => {
             method: 'post',
             headers: {
                 'Content-type': 'application/json',
-                Authorization: `Bearer skAtdpfUgZo20BFZL4hLcMwGlXeGEZMKvNeIZM0C1P1AbXF2zSpUtNlLpPigHOSQeViEHhzg4xJ1hDjWU`
+                Authorization: `Bearer skI0d4xskBFHNAirGclytO5ECIOZSyER87pRUSDHeEtw75M5diC5e3PZtugpWJwRqjcsq8huDkn3AY3gUrqG1ddJIEBIjiyE6vPr3F3IC3GV3goG752aKMJg5AeQZNJ9GfZPzcH9uL0NgNYzkedEmmqAEF684akIYc2Seya3bMNVsHEdExV6`
             },
             body: JSON.stringify({mutations})
         })
@@ -96,14 +96,20 @@ const PlayerNoms = (props) => {
 
     const authCheck = () => {
         const authCode = path.split('/')[5];
+
+		// https://www.random.org/strings/
         
-        if (playerName === 'Bianca' && authCode === 'Ok6Qpil6zz') {
+        if (playerName === 'Alyssa' && authCode === 'stwUfqSGgt') {
             return true;
-        } else if (playerName === 'Brett' && authCode === 'jO04EKjNjH') {
+        } else if (playerName === 'Bianca' && authCode === 'Ok6Qpil6zz') {
+            return true;
+		} else if (playerName === 'Brett' && authCode === 'jO04EKjNjH') {
             return true;
         } else if (playerName === 'Dave' && authCode === 'qe29GVNc7q') {
             return true;
         } else if (playerName === 'Dom' && authCode === 'qDnzRWCaFw') {
+            return true;
+		} else if (playerName === 'Lee' && authCode === 'leVGh3SCrF') {
             return true;
         } else if (playerName === 'Sam' && authCode === '88F1utJhL7') {
             return true;
@@ -130,14 +136,14 @@ const PlayerNoms = (props) => {
         } else {
             if (window.confirm('Thanks for playing! You can make changes to your nominations up until the day of the Oscars. Check out the results here!')) {
                 console.log('huh?');
-                window.location.href = "/oscars-showdown/2023/results";
+                window.location.href = "/oscars-showdown/2024/results";
             }
         }
     }
     
     if (!authCheck()) {
         return (
-            <div className="nedry-block"><div><img src="https://coolmoviemerch.com/oscars-showdown/2023/nedry.webp" /></div></div>
+            <div className="nedry-block"><div><img src="https://coolmoviemerch.com/oscars-showdown/2024/nedry.webp" /></div></div>
         );
     }
     
@@ -269,7 +275,7 @@ const Winners = (props) => {
             method: 'post',
             headers: {
                 'Content-type': 'application/json',
-                Authorization: `Bearer skAtdpfUgZo20BFZL4hLcMwGlXeGEZMKvNeIZM0C1P1AbXF2zSpUtNlLpPigHOSQeViEHhzg4xJ1hDjWU`
+                Authorization: `Bearer skI0d4xskBFHNAirGclytO5ECIOZSyER87pRUSDHeEtw75M5diC5e3PZtugpWJwRqjcsq8huDkn3AY3gUrqG1ddJIEBIjiyE6vPr3F3IC3GV3goG752aKMJg5AeQZNJ9GfZPzcH9uL0NgNYzkedEmmqAEF684akIYc2Seya3bMNVsHEdExV6`
             },
             body: JSON.stringify({mutations})
         })
@@ -407,10 +413,12 @@ const Results = (props) => {
                         <thead>
                             <tr>
                                 <th></th>
-                                <th>Bianca</th>
+                                <th>Alyssa</th>
+								<th>Bianca</th>
                                 <th>Brett</th>
                                 <th>Dave</th>
                                 <th>Dom</th>
+								<th>Lee</th>
                                 <th>Sam</th>
                                 <th>Sissel</th>
                                 <th>Oscar Winner</th>
@@ -419,120 +427,144 @@ const Results = (props) => {
                         <tbody>
                             <tr>
                                 <td>Best Picture</td>
-                                <td>{verdict('Bianca', 'picture')}</td>
+                                <td>{verdict('Alyssa', 'picture')}</td>
+								<td>{verdict('Bianca', 'picture')}</td>
                                 <td>{verdict('Brett', 'picture')}</td>
                                 <td>{verdict('Dave', 'picture')}</td>
                                 <td>{verdict('Dom', 'picture')}</td>
+								<td>{verdict('Lee', 'picture')}</td>
                                 <td>{verdict('Sam', 'picture')}</td>
                                 <td>{verdict('Sissel', 'picture')}</td>
                                 <td>{winners['picture'] === '-- Please select a nominee!' ? '🙈' : winners['picture']}</td>
                             </tr>
                             <tr>
                                 <td>Best Director</td>
-                                <td>{verdict('Bianca', 'director')}</td>
+                                <td>{verdict('Alyssa', 'director')}</td>
+								<td>{verdict('Bianca', 'director')}</td>
                                 <td>{verdict('Brett', 'director')}</td>
                                 <td>{verdict('Dave', 'director')}</td>
                                 <td>{verdict('Dom', 'director')}</td>
+								<td>{verdict('Lee', 'director')}</td>
                                 <td>{verdict('Sam', 'director')}</td>
                                 <td>{verdict('Sissel', 'director')}</td>
                                 <td>{winners['director'] === '-- Please select a nominee!' ? '🙈' : winners['director']}</td>
                             </tr>
                             <tr>
                                 <td>Best Actor</td>
-                                <td>{verdict('Bianca', 'actor')}</td>
+                                <td>{verdict('Alyssa', 'actor')}</td>
+								<td>{verdict('Bianca', 'actor')}</td>
                                 <td>{verdict('Brett', 'actor')}</td>
                                 <td>{verdict('Dave', 'actor')}</td>
                                 <td>{verdict('Dom', 'actor')}</td>
+								<td>{verdict('Lee', 'actor')}</td>
                                 <td>{verdict('Sam', 'actor')}</td>
                                 <td>{verdict('Sissel', 'actor')}</td>
                                 <td>{winners['actor'] === '-- Please select a nominee!' ? '🙈' : winners['actor']}</td>
                             </tr>
                             <tr>
                                 <td>Best Actress</td>
-                                <td>{verdict('Bianca', 'actress')}</td>
+                                <td>{verdict('Alyssa', 'actress')}</td>
+								<td>{verdict('Bianca', 'actress')}</td>
                                 <td>{verdict('Brett', 'actress')}</td>
                                 <td>{verdict('Dave', 'actress')}</td>
                                 <td>{verdict('Dom', 'actress')}</td>
+								<td>{verdict('Lee', 'actress')}</td>
                                 <td>{verdict('Sam', 'actress')}</td>
                                 <td>{verdict('Sissel', 'actress')}</td>
                                 <td>{winners['actress'] === '-- Please select a nominee!' ? '🙈' : winners['actress']}</td>
                             </tr>
                             <tr>
                                 <td>Best Supporting Actor</td>
-                                <td>{verdict('Bianca', 'supportingActor')}</td>
+                                <td>{verdict('Alyssa', 'supportingActor')}</td>
+								<td>{verdict('Bianca', 'supportingActor')}</td>
                                 <td>{verdict('Brett', 'supportingActor')}</td>
                                 <td>{verdict('Dave', 'supportingActor')}</td>
                                 <td>{verdict('Dom', 'supportingActor')}</td>
+								<td>{verdict('Lee', 'supportingActor')}</td>
                                 <td>{verdict('Sam', 'supportingActor')}</td>
                                 <td>{verdict('Sissel', 'supportingActor')}</td>
                                 <td>{winners['supportingActor'] === '-- Please select a nominee!' ? '🙈' : winners['supportingActor']}</td>
                             </tr>
                             <tr>
                                 <td>Best Supporting Actress</td>
-                                <td>{verdict('Bianca', 'supportingActress')}</td>
+                                <td>{verdict('Alyssa', 'supportingActress')}</td>
+								<td>{verdict('Bianca', 'supportingActress')}</td>
                                 <td>{verdict('Brett', 'supportingActress')}</td>
                                 <td>{verdict('Dave', 'supportingActress')}</td>
                                 <td>{verdict('Dom', 'supportingActress')}</td>
+								<td>{verdict('Lee', 'supportingActress')}</td>
                                 <td>{verdict('Sam', 'supportingActress')}</td>
                                 <td>{verdict('Sissel', 'supportingActress')}</td>
                                 <td>{winners['supportingActress'] === '-- Please select a nominee!' ? '🙈' : winners['supportingActress']}</td>
                             </tr>
                             <tr>
                                 <td>Best Adapted Screenplay</td>
-                                <td>{verdict('Bianca', 'adaptedScreenplay')}</td>
+                                <td>{verdict('Alyssa', 'adaptedScreenplay')}</td>
+								<td>{verdict('Bianca', 'adaptedScreenplay')}</td>
                                 <td>{verdict('Brett', 'adaptedScreenplay')}</td>
                                 <td>{verdict('Dave', 'adaptedScreenplay')}</td>
                                 <td>{verdict('Dom', 'adaptedScreenplay')}</td>
+								<td>{verdict('Lee', 'adaptedScreenplay')}</td>
                                 <td>{verdict('Sam', 'adaptedScreenplay')}</td>
                                 <td>{verdict('Sissel', 'adaptedScreenplay')}</td>
                                 <td>{winners['adaptedScreenplay'] === '-- Please select a nominee!' ? '🙈' : winners['adaptedScreenplay']}</td>
                             </tr>
                             <tr>
                                 <td>Best Original Screenplay</td>
-                                <td>{verdict('Bianca', 'originalScreenplay')}</td>
+                                <td>{verdict('Alyssa', 'originalScreenplay')}</td>
+								<td>{verdict('Bianca', 'originalScreenplay')}</td>
                                 <td>{verdict('Brett', 'originalScreenplay')}</td>
                                 <td>{verdict('Dave', 'originalScreenplay')}</td>
                                 <td>{verdict('Dom', 'originalScreenplay')}</td>
+								<td>{verdict('Lee', 'originalScreenplay')}</td>
                                 <td>{verdict('Sam', 'originalScreenplay')}</td>
                                 <td>{verdict('Sissel', 'originalScreenplay')}</td>
                                 <td>{winners['originalScreenplay'] === '-- Please select a nominee!' ? '🙈' : winners['originalScreenplay']}</td>
                             </tr>
                             <tr>
                                 <td>Best Animated Feature Film</td>
-                                <td>{verdict('Bianca', 'animatedFeatureFilm')}</td>
+                                <td>{verdict('Alyssa', 'animatedFeatureFilm')}</td>
+								<td>{verdict('Bianca', 'animatedFeatureFilm')}</td>
                                 <td>{verdict('Brett', 'animatedFeatureFilm')}</td>
                                 <td>{verdict('Dave', 'animatedFeatureFilm')}</td>
                                 <td>{verdict('Dom', 'animatedFeatureFilm')}</td>
+								<td>{verdict('Lee', 'animatedFeatureFilm')}</td>
                                 <td>{verdict('Sam', 'animatedFeatureFilm')}</td>
                                 <td>{verdict('Sissel', 'animatedFeatureFilm')}</td>
                                 <td>{winners['animatedFeatureFilm'] === '-- Please select a nominee!' ? '🙈' : winners['animatedFeatureFilm']}</td>
                             </tr>
                             <tr>
                                 <td>Best Cinematography</td>
-                                <td>{verdict('Bianca', 'cinematography')}</td>
+                                <td>{verdict('Alyssa', 'cinematography')}</td>
+								<td>{verdict('Bianca', 'cinematography')}</td>
                                 <td>{verdict('Brett', 'cinematography')}</td>
                                 <td>{verdict('Dave', 'cinematography')}</td>
                                 <td>{verdict('Dom', 'cinematography')}</td>
+								<td>{verdict('Lee', 'cinematography')}</td>
                                 <td>{verdict('Sam', 'cinematography')}</td>
                                 <td>{verdict('Sissel', 'cinematography')}</td>
                                 <td>{winners['cinematography'] === '-- Please select a nominee!' ? '🙈' : winners['cinematography']}</td>
                             </tr>
                             <tr>
                                 <td>Best Makeup and Hairstyling</td>
-                                <td>{verdict('Bianca', 'makeupAndHairstyling')}</td>
+                                <td>{verdict('Alyssa', 'makeupAndHairstyling')}</td>
+								<td>{verdict('Bianca', 'makeupAndHairstyling')}</td>
                                 <td>{verdict('Brett', 'makeupAndHairstyling')}</td>
                                 <td>{verdict('Dave', 'makeupAndHairstyling')}</td>
                                 <td>{verdict('Dom', 'makeupAndHairstyling')}</td>
+								<td>{verdict('Lee', 'makeupAndHairstyling')}</td>
                                 <td>{verdict('Sam', 'makeupAndHairstyling')}</td>
                                 <td>{verdict('Sissel', 'makeupAndHairstyling')}</td>
                                 <td>{winners['makeupAndHairstyling'] === '-- Please select a nominee!' ? '🙈' : winners['makeupAndHairstyling']}</td>
                             </tr>
                             <tr>
                                 <td>Best Visual Effects</td>
-                                <td>{verdict('Bianca', 'visualEffects')}</td>
+                                <td>{verdict('Alyssa', 'visualEffects')}</td>
+								<td>{verdict('Bianca', 'visualEffects')}</td>
                                 <td>{verdict('Brett', 'visualEffects')}</td>
                                 <td>{verdict('Dave', 'visualEffects')}</td>
                                 <td>{verdict('Dom', 'visualEffects')}</td>
+								<td>{verdict('Lee', 'visualEffects')}</td>
                                 <td>{verdict('Sam', 'visualEffects')}</td>
                                 <td>{verdict('Sissel', 'visualEffects')}</td>
                                 <td>{winners['visualEffects'] === '-- Please select a nominee!' ? '🙈' : winners['visualEffects']}</td>
@@ -541,10 +573,12 @@ const Results = (props) => {
                         <tfoot>
                             <tr>
                                 <td>Total Wins</td>
-                                <td>{playerScore('Bianca')}</td>
+                                <td>{playerScore('Alyssa')}</td>
+								<td>{playerScore('Bianca')}</td>
                                 <td>{playerScore('Brett')}</td>
                                 <td>{playerScore('Dave')}</td>
                                 <td>{playerScore('Dom')}</td>
+								<td>{playerScore('Lee')}</td>
                                 <td>{playerScore('Sam')}</td>
                                 <td>{playerScore('Sissel')}</td>
                                 <td></td>
@@ -625,7 +659,7 @@ function App() {
     
     return (
         <div>
-            <h1>Oscars Showdown 2023</h1>
+            <h1>Oscars Showdown 2024</h1>
                         
             {dataFetched && path.includes('player') && <PlayerNoms
                 player={player}

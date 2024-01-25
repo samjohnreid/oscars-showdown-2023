@@ -1,5 +1,5 @@
 {
-  "name": "oscars-showdown-2023",
+  "name": "oscars-showdown-2024",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -36,5 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://coolmoviemerch.com/oscars-showdown/2023/"
+  "homepage": "https://coolmoviemerch.com/oscars-showdown/2024/"
 }
