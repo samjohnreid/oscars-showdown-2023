@@ -99,21 +99,21 @@ const PlayerNoms = (props) => {
 
 		// https://www.random.org/strings/
         
-        if (playerName === 'Alyssa' && authCode === 'stwUfqSGgt') {
+        if (playerName === 'Alyssa' && authCode === process.env.REACT_APP_PLAYER_TOKEN_ALYSSA) {
             return true;
-        } else if (playerName === 'Bianca' && authCode === 'Ok6Qpil6zz') {
+        } else if (playerName === 'Bianca' && authCode === process.env.REACT_APP_PLAYER_TOKEN_BIANCA) {
             return true;
-		} else if (playerName === 'Brett' && authCode === 'jO04EKjNjH') {
+		} else if (playerName === 'Brett' && authCode === process.env.REACT_APP_PLAYER_TOKEN_BRETT) {
             return true;
-        } else if (playerName === 'Dave' && authCode === 'qe29GVNc7q') {
+        } else if (playerName === 'Dave' && authCode === process.env.REACT_APP_PLAYER_TOKEN_DAVE) {
             return true;
-        } else if (playerName === 'Dom' && authCode === 'qDnzRWCaFw') {
+        } else if (playerName === 'Dom' && authCode === process.env.REACT_APP_PLAYER_TOKEN_DOM) {
             return true;
-		} else if (playerName === 'Lee' && authCode === 'leVGh3SCrF') {
+		} else if (playerName === 'Lee' && authCode === process.env.REACT_APP_PLAYER_TOKEN_LEE) {
             return true;
-        } else if (playerName === 'Sam' && authCode === '88F1utJhL7') {
+        } else if (playerName === 'Sam' && authCode === process.env.REACT_APP_PLAYER_TOKEN_SAM) {
             return true;
-        } else if (playerName === 'Sissel' && authCode === '6H03XsZCFa') {
+        } else if (playerName === 'Sissel' && authCode === process.env.REACT_APP_PLAYER_TOKEN_SISSEL) {
             return true;
         } else {
             return false;
