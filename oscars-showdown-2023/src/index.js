@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
 
-const PROJECT_ID = "d2cpdrm6";
+const PROJECT_ID = process.env.REACT_APP_PROJECT_ID;
 const DATASET = "production";
 const API_PATH = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=`;
 
