@@ -141,7 +141,12 @@ const PlayerNoms = (props) => {
         }
     }
     
-    if (!authCheck()) {
+	var deadlineDate = new Date('2024-03-10');
+	let deadlineExpired = false;
+
+	Date.now() > deadlineDate.getTime() ? deadlineExpired = true : deadlineExpired = false;
+	
+	if (!authCheck() || deadlineExpired) {
         return (
             <div className="nedry-block"><div><img src="https://coolmoviemerch.com/oscars-showdown/2024/nedry.webp" /></div></div>
         );
