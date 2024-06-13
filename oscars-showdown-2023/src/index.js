@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
+import Counter from "./components/Counter";
+import { Provider } from 'react-redux';
+import store from './store/store';
 import './index.scss';
 
 const PROJECT_ID = process.env.REACT_APP_PROJECT_ID;
@@ -664,7 +667,8 @@ function App() {
     
     return (
         <div>
-            <h1>Oscars Showdown 2024</h1>
+            <Counter />
+			<h1>Oscars Showdown 2024</h1>
                         
             {dataFetched && path.includes('player') && <PlayerNoms
                 player={player}
@@ -721,4 +725,9 @@ function App() {
 // ******************************************************************************************************************************************************
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+const rootInstance = ReactDOM.createRoot(root);
+rootInstance.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
