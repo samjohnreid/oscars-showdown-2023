@@ -725,8 +725,7 @@ function App() {
 // ******************************************************************************************************************************************************
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const rootInstance = root;
-rootInstance.render(
+root.render(
   <Provider store={store}>
     <App />
   </Provider>
