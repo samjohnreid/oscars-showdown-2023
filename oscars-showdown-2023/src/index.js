@@ -146,7 +146,7 @@ const PlayerNoms = (props) => {
 
 	Date.now() > deadlineDate.getTime() ? deadlineExpired = true : deadlineExpired = false;
 	
-	if (!authCheck() || deadlineExpired) {
+	if (!authCheck()) {
         return (
             <div className="nedry-block"><div><img src="https://coolmoviemerch.com/oscars-showdown/2024/nedry.webp" /></div></div>
         );
